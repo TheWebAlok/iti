@@ -5,7 +5,7 @@
  * served from the InstituteSettings collection through the API.
  */
 export const institute = {
-  name: 'Aurangabad ITI',
+  name: 'Aurangabad',
   shortName: 'ITI',
   tagline: 'Industrial Training Institute',
   email: 'info@your-iti.example',
