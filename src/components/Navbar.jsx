@@ -7,6 +7,7 @@ import ThemeToggle from './ThemeToggle';
 import { useAuth } from '../context/AuthContext'; // path apne folder ke hisaab se adjust karein
 
 const links = [
+  { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
   { to: '/trades', label: 'Trades' },
   { to: '/enquiry', label: 'Enquiry' },
