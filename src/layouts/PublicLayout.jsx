@@ -1,6 +1,6 @@
 import { Suspense, useEffect } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
@@ -18,15 +18,18 @@ export default function PublicLayout() {
         Skip to main content
       </a>
       <Navbar />
-      <AnimatePresence mode="wait">
-        <motion.main
-          id="main" key={pathname} className="flex-1"
-          initial={reduce ? false : { opacity: 0 }} animate={{ opacity: 1 }} exit={reduce ? undefined : { opacity: 0 }}
-          transition={{ duration: 0.18 }}
-        >
-          <Suspense fallback={<LoadingSkeleton />}><Outlet /></Suspense>
-        </motion.main>
-      </AnimatePresence>
+      <motion.main
+        id="main"
+        key={pathname}
+        className="flex-1"
+        initial={reduce ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.18 }}
+      >
+        <Suspense fallback={<LoadingSkeleton />}>
+          <Outlet />
+        </Suspense>
+      </motion.main>
       <Footer />
       <WhatsAppButton />
     </div>
